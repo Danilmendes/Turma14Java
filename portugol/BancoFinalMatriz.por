@@ -3,9 +3,9 @@ programa
 	inclua biblioteca Matematica --> Mat
 	inclua biblioteca Texto
 
-	const inteiro DIAS = 31
+	const inteiro DIAS = 2
 	const inteiro ANIVERSARIOCONTA = 2
-	const inteiro MAXMOVIMENTACOES = 5
+	const inteiro MAXMOVIMENTACOES = 2
 
 	cadeia nome[] = {"Allen de Lima Vieira","André de Brito Silva da Costa","Bárbara Liboni Guerra","Beatriz Martins","Beymar Jhoel Acapa Lima","Breno Nogueira Botelho Noccioli","Daniel Augusto Gomes Ferreira Filho","Danilo Mendes Ferreira","Danilo Pereira da Silva","Davi Silva Vieira","Diego Vinicio da Silva Nascimento","Erick Costa Ferreira","Ewerton Inacio Lima","Fernanda Agapito","Fernanda Barbosa Ferraz","Francisco José Pires","Gabriel Sérgio Nascimento Santos Gonçalves","Gideão da Silva Idelfonso","Gilson Amorim de Matos","Guilherme Gonçalves da Silva","Gustavo Rabelo Teles","Heloisa Beatriz de Oliveira Costa","Igor Mateus Queiroz Gato","Isabel Emiko Yamakawa Oyama","Jackeline Akemi de Moura","José Jorge Hauck Júnior","Juliana Santos André","Kélven Cleiton de Araújo Brandão","Laís Lima Santos","Lucas anseloni barros","Lucas Gonçalves da SIlva","luis felipe da silva","Luiz Felipe da Silva Magalhães","Marcos Eduardo Gomes Gonçalves","Micaely da Silva Lima","Rafaela Oliveira Silva","Tiago dos Santos Martins","Verônica Navarro Almenara","Vinicius Alves Miranda"}
 	caracter genero[] = {'M','M','F','F','M','M','M','M','M','M','M','M','M','F','F','M','M','M','M','M','M','F','M','F','F','M','F','M','F','M','M','M','M','M','F','F','M','F','M'}
@@ -208,7 +208,7 @@ programa
 	
 	funcao contaEspecial(){
 		para(inteiro j=0; j<DIAS; j++){
-			para (x=0; x<MAXMOVIMENTACOES; x++)
+			para (inteiro i=0; i<MAXMOVIMENTACOES; i++)
 		{
 			limpa()
 			escreva("\nVocê quer Creditar (C) ou Debitar (D) da conta? ")
@@ -223,29 +223,29 @@ programa
 			se (status=="C")
 			{
 				escreva("\nQuanto você quer depositar: R$ ")
-				leia(movimentoConta[j][x])
-				enquanto (movimentoConta[j][x]<0)
+				leia(movimentoConta[j][i])
+				enquanto (movimentoConta[j][i]<0)
 				{
 					escreva("\nValor inválido! Quanto você quer depositar: R$")
-					leia(movimentoConta[j][x])						
+					leia(movimentoConta[j][i])						
 				} 
-				saldoConta=saldoConta+movimentoConta[j][x]			
+				saldoConta=saldoConta+movimentoConta[j][i]			
 			}
 			senao se (status =="D")
 			{
 				escreva("\nQuanto você quer retirar: R$ ")
-				leia(movimentoConta[j][x])
-				enquanto (movimentoConta[j][x]<0)
+				leia(movimentoConta[j][i])
+				enquanto (movimentoConta[j][i]<0)
 				{
 					escreva("\nValor inválido. Quanto você quer retirar: R$ ")
-					leia(movimentoConta[j][x])
+					leia(movimentoConta[j][i])
 				} 
-				enquanto (movimentoConta[j][x]>saldoConta+valorLimite)
+				enquanto (movimentoConta[j][i]>saldoConta+valorLimite)
 				{
 					escreva("Saldo e Limite de crédito insuficientes! Quanto você quer retirar: R$ ")
-					leia(movimentoConta[j][x])
+					leia(movimentoConta[j][i])
 				}	
-				se (movimentoConta[j][x]>saldoConta)
+				se (movimentoConta[j][i]>saldoConta)
 				{
 					escreva("\nLimite disponível: R$",valorLimite)
 					escreva("\nSaldo insuficiente! Você deseja utilizar o crédito especial (S ou N)?")
@@ -258,9 +258,9 @@ programa
 					}											
 					se (especial=="S")
 					{	
-						valorLimite=((saldoConta+valorLimite)-movimentoConta[j][x])
-						movimentoConta[j][x]= -movimentoConta[j][x]
-						saldoConta=saldoConta + movimentoConta[j][x]
+						valorLimite=((saldoConta+valorLimite)-movimentoConta[j][i])
+						movimentoConta[j][i]= -movimentoConta[j][i]
+						saldoConta=saldoConta + movimentoConta[j][i]
 						se(saldoConta <0.0){
 							saldoConta = 0.0
 						}
@@ -333,7 +333,11 @@ programa
 		escreva("\n\nVocê tem ",Mat.arredondar(saldoConta,2)," reais na sua conta do G6 Bank")	
 	}
 	funcao extrato(){
-		escreva("\n\n----Extrato----\n\n")	
+		escreva("\n\n----Extrato----\n\n")
+		para(inteiro j=0; j<DIAS; j++){
+			escreva("Dia ",j+1,"\t")
+		}
+		escreva("\n\n")	
 		para(inteiro j=0; j<DIAS; j++){
 			para(inteiro i=0; i<MAXMOVIMENTACOES; i++){
 				escreva(movimentoConta[i][j],"\t")				
@@ -347,9 +351,9 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 99; 
+ * @POSICAO-CURSOR = 9775; 
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = {numConta, 20, 9, 8};
+ * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
