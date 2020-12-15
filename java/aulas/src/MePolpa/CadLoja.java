@@ -23,7 +23,7 @@ public class CadLoja {
 		do {
 			linha(tamanho);
 			System.out.println("\n\t\t\t\t   Me Polpa");
-			System.out.println("\t\tQual a maior loja de polpa do Brasil? Me Polpa né!");
+			System.out.println("\t\t\tA maior loja de polpa do Brasil!");
 			linha(tamanho);
 
 			System.out.println("\n[1] - Comprar produtos");
