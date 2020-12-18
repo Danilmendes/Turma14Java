@@ -8,9 +8,9 @@ public class CadLoja {
 	public static void main(String[] args) {
 
 		final int tamanho = 80;
-		double valorTotal = 0;
+		double valorParcela=0,valorTotal = 0;
 		char opcao, continua, continuaCompra;
-		int anoNascimento, qtdeVendida, produtoCompra, entrada, anoAtual = 2020;
+		int  numeroParcela = 0,formaPagamento, anoNascimento, qtdeVendida, produtoCompra, entrada, anoAtual = 2020;
 		String nome, cpf, compararProduto;
 		char genero;
 
@@ -21,7 +21,7 @@ public class CadLoja {
 		lista.add(new Produto("MP-002", "Abacaxi", 8.00, 10));
 		lista.add(new Produto("MP-003", "Acerola", 8.00, 10));
 		lista.add(new Produto("MP-004", "Ameixa", 10.00, 10));
-		lista.add(new Produto("MP-005", "Cupuaçu", 10.00, 10));
+		lista.add(new Produto("MP-005", "Cupua�u", 10.00, 10));
 		lista.add(new Produto("MP-006", "Goiaba", 8.00, 10));
 		lista.add(new Produto("MP-007", "Graviola", 9.00, 10));
 		lista.add(new Produto("MP-008", "Mangaba", 8.00, 10));
@@ -36,10 +36,10 @@ public class CadLoja {
 		linha(tamanho);
 		System.out.println("\nDigite seu nome: ");
 		nome = leia.nextLine();
-		System.out.println("\nDigite seu gênero [M] Masculino,[F] Feminino ou [O] Não-Binário: ");
+		System.out.println("\nDigite seu g�nero [M] Masculino,[F] Feminino ou [O] Não-Binário: ");
 		genero = leia.next().toUpperCase().charAt(0);
 		while (genero != 'M' && genero != 'F' && genero != 'O') {
-			System.out.println("Valor incorreto. Digite seu gênero [M] Masculino,[F] Feminino ou [O] Não-Binário: ");
+			System.out.println("Valor incorreto. Digite seu g�nero [M] Masculino,[F] Feminino ou [O] Não-Binário: ");
 			genero = leia.next().toUpperCase().charAt(0);
 		}
 		System.out.println("Digite seu ano de nascimento: ");
@@ -118,6 +118,34 @@ public class CadLoja {
 					}
 				} while (continuaCompra == 'S');
 				linha(tamanho);
+				System.out.println("\n\t\tEscolha a forma de pagamento");
+				linha(tamanho);
+				System.out.println("\n[1] - PAGAMENTO A VISTA - 10% de desconto");
+				System.out.println("[2] - DEBITO");
+				System.out.println("[3] - CRÉDITO - 5% de juros");
+				System.out.println("[4] - CRÉDITO 2x/3x - 10% de juros");
+				formaPagamento = leia.nextInt();
+				while(formaPagamento < 1 || formaPagamento > 4) {
+					System.out.println("Opção incorreta. Digite uma forma de pagamento válida: ");
+					formaPagamento = leia.nextInt();
+				}
+				if(formaPagamento == 1) {
+					valorTotal = (valorTotal*0.9)*1.09;
+				}
+				else if(formaPagamento == 3) {
+					valorTotal = (valorTotal*1.05)*1.09;
+				}
+				else if(formaPagamento == 4) {
+					System.out.println("Digite em quantas vezes deseja comprar (2x ou 3x): ");
+					numeroParcela = leia.nextInt();
+					while(numeroParcela<2 && numeroParcela >3 ) {
+						System.out.println("Valor incorreto. Digite em quantas vezes deseja comprar (2x ou 3x): ");
+						numeroParcela = leia.nextInt();
+					}
+					valorTotal = (valorTotal*1.1)*1.09;
+					valorParcela = valorTotal/numeroParcela;
+				}
+				linha(tamanho);
 				System.out.println("\n\t\t\t   CUPOM FISCAL");
 				System.out.println("CÓDIGO\t  DESCRIÇÃO\tQUANTIDADE\tVL. UNIT(R$)\tVL.ITEM(R$)");
 				linha(tamanho);
@@ -125,8 +153,11 @@ public class CadLoja {
 					System.out.printf("\n%s\t  %s\t   %d\t\t %.2f\t\t %.2f\n", i.getCodigo(), i.getNomeProduto(),
 							i.getQtdeVendida(), i.getPrecoUnitario(), i.getPrecoUnitario() * i.getQtdeVendida());
 				}
-				linha(tamanho);
-				System.out.printf("\n\t\t\t\t\t    VL. TOTAL R$ %.2f\n", valorTotal);
+				linha(tamanho);				
+				System.out.printf("\n\t\t\t    VL. TOTAL(Imposto de 9%%)  R$ %.2f \n", valorTotal);
+				if(formaPagamento == 4) {
+					System.out.printf("\n\t\t  NUM. PARCELAS  %d   VL. DAS PARCELAS R$% .2f\n", numeroParcela,valorParcela);
+				}
 				linha(tamanho);
 				System.out.print("\n\nVocê deseja voltar para o menu (S ou N)? ");
 				continua = leia.next().toUpperCase().charAt(0);
@@ -168,7 +199,7 @@ public class CadLoja {
 					System.out.print("\n\nVocê deseja comprar mais algum produto (S ou N)? ");
 					continuaCompra = leia.next().toUpperCase().charAt(0);
 					while (continuaCompra != 'S' && continuaCompra != 'N') {
-						System.out.print("\nOpção incorreta. Você deseja comprar mais algum produto (S ou N)? ");
+						System.out.print("\nOpção incorreta. Vocêdeseja comprar mais algum produto (S ou N)? ");
 						continuaCompra = leia.next().toUpperCase().charAt(0);
 					}
 				} while (continuaCompra == 'S');
@@ -188,7 +219,7 @@ public class CadLoja {
 
 	static void linha(int tamanho) {
 		for (int x = 0; x < tamanho; x++) {
-			System.out.print("═");
+			System.out.print("=");
 		}
 	}
 
