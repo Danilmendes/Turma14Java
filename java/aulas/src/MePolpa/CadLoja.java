@@ -21,7 +21,7 @@ public class CadLoja {
 		lista.add(new Produto("MP-002", "Abacaxi", 8.00, 10));
 		lista.add(new Produto("MP-003", "Acerola", 8.00, 10));
 		lista.add(new Produto("MP-004", "Ameixa", 10.00, 10));
-		lista.add(new Produto("MP-005", "Cupua�u", 10.00, 10));
+		lista.add(new Produto("MP-005", "Cupuaçu", 10.00, 10));
 		lista.add(new Produto("MP-006", "Goiaba", 8.00, 10));
 		lista.add(new Produto("MP-007", "Graviola", 9.00, 10));
 		lista.add(new Produto("MP-008", "Mangaba", 8.00, 10));
@@ -36,10 +36,10 @@ public class CadLoja {
 		linha(tamanho);
 		System.out.println("\nDigite seu nome: ");
 		nome = leia.nextLine();
-		System.out.println("\nDigite seu g�nero [M] Masculino,[F] Feminino ou [O] Não-Binário: ");
+		System.out.println("\nDigite seu gênero [M] Masculino,[F] Feminino ou [O] Não-Binário: ");
 		genero = leia.next().toUpperCase().charAt(0);
 		while (genero != 'M' && genero != 'F' && genero != 'O') {
-			System.out.println("Valor incorreto. Digite seu g�nero [M] Masculino,[F] Feminino ou [O] Não-Binário: ");
+			System.out.println("Valor incorreto. Digite seu gênero [M] Masculino,[F] Feminino ou [O] Não-Binário: ");
 			genero = leia.next().toUpperCase().charAt(0);
 		}
 		System.out.println("Digite seu ano de nascimento: ");
