@@ -20,7 +20,7 @@ public class BancoTeste {
 
 		do {
 			linha(tamanho);
-			System.out.println("\n\t\tBANCO G6");
+			System.out.println("\n\t\t    BANCO G6");
 			linha(tamanho);
 
 			System.out.println("\n[1] - Abertura de conta");
@@ -436,7 +436,9 @@ public class BancoTeste {
 				break;
 			}
 		} while (true);
-		System.out.println("Obrigado por utilizar o nosso APP!");
+		linha(tamanho);
+		System.out.println("\n\tObrigado por utilizar o nosso APP!");
+		linha(tamanho);
 	}
 
 	static void linha(int tamanho) {
