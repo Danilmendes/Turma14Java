@@ -17,5 +17,4 @@ public class borderlayout {
 		frame.pack();
 		frame.setVisible(true);
 	}
-
 }

@@ -13,6 +13,7 @@ public class boxLayout {
 		hPanel.setLayout(boxLayout);
 		for(int i=1 ; i<=9; i++) {
 			hPanel.add(new JButton("Button "+ i));
+			hPanel.add(Box.createHorizontalGlue());
 		}
 		container.add(hPanel, BorderLayout.SOUTH);
 		frame.pack();

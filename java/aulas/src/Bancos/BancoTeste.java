@@ -57,6 +57,7 @@ public class BancoTeste {
 					System.out.println("\nNúmero da conta: " + cp.getNumConta());
 					System.out.println("CPF: " + cp.getCpfConta());
 					System.out.println("Aniversário da conta: " + cp.getDataAniversarioConta());
+					System.out.println("Saldo total: R$" + cp.getSaldoConta());
 					linha(tamanho);
 					for (int i = 0; i < MAX_MOVIMENTOS; i++) {
 						do {
@@ -100,6 +101,7 @@ public class BancoTeste {
 					linha(tamanho);
 					System.out.println("\nNúmero da conta: " + dm.getNumConta());
 					System.out.println("CPF: " + dm.getCpfConta());
+					System.out.println("Saldo total: R$ " + dm.getSaldoConta());
 					linha(tamanho);
 					for (int i = 0; i < MAX_MOVIMENTOS; i++) {
 						do {
@@ -143,6 +145,8 @@ public class BancoTeste {
 					linha(tamanho);
 					System.out.println("\nNúmero da conta: " + dv.getNumConta());
 					System.out.println("CPF: " + dv.getCpfConta());
+					System.out.println("Saldo total: R$ " + dv.getSaldoConta());
+					System.out.println("Limite Atual: R$ " + dv.getLimiteEspecial());
 					linha(tamanho);
 					for (int i = 0; i < MAX_MOVIMENTOS; i++) {
 						do {
@@ -189,6 +193,8 @@ public class BancoTeste {
 					linha(tamanho);
 					System.out.println("\nNúmero da conta: " + mg.getNumConta());
 					System.out.println("CPF: " + mg.getCpfConta());
+					System.out.println("Saldo total: R$ " + mg.getSaldoConta());
+					System.out.println("Valor de emprestimo disponivel: R$ " + mg.getEmprestimoEmpresa());
 					linha(tamanho);
 					for (int i = 0; i < MAX_MOVIMENTOS; i++) {
 						do {
